@@ -1,0 +1,84 @@
+Teknik Analiz Yöntemleri;
+
+Fiyat Formasyonları,
+
+	– Devamlılık formasyonları,
+
+	–Trend değişim formasyonları,
+
+Hareketli ortalamalar,
+
+Fibonacci sayıları,
+
+Composite grafikler,
+
+Zarflar / Bantlar,
+
+	– Bollinger Bantları,
+
+Fiyat göstergeleri,
+
+	– Relative Strength Index (RSI)
+
+	– Directional Movement (ADX)
+
+	– Stochastic Oscillator
+
+	– MACD (Moving Average Convergence / Divergence)
+
+	– Momentum
+
+Elliot dalgalarıdır.
+
+Kullanılabilir Yöntemler
+
+	- Hareketli ortalamalar
+	- Bolinger Bantları
+	- RSI
+	- CCI
+
+
+
+
+#### GÖREVLER
+
+	*bulanıklaştırma
+		*verileri bulanıklaştırma için hazırlama
+		*üyelik fonksiyonlarını belirle
+			*hareketli ortalama
+				xsma = data.sma[i]
+				smaal_mu, smaal, smaal_X = yamuk(minsma, minsma, minsma, npersma, 0, maxsma, xsma)
+				smabekle_mu, smabekle, smaal_X = ucgen(minsma, npersma, 0, ppersma, maxsma, xsma)
+				smasat_mu, smasat, smasat_X = yamuk(minsma, 0, ppersma, maxsma, maxsma, maxsma, xsma)
+			*rsi
+				xrsi = data.rsi[i]
+				rsial_mu, rsial, rsial_X = yamuk(0,0,0,15,25,100, xrsi)
+				rsibekle_mu, rsibekle, rsibekle_X = yamuk(0,15,25,65,75,100, xrsi)
+				rsisat_mu, rsisat, rsisat_X = yamuk(0,65,75,100,100,100, xrsi)
+			*bollinger
+				xblng = data.blngbnd[i]
+				blngal_mu, blngal, blngal_X = ucgen(minblng, minblng, 0, 50, maxblng, xblng)
+				blngbekle_mu, blngbekle, blngbekle_X = ucgen(minblng, 0, 50, 100, maxblng, xblng)
+				blngsat_mu, blngsat, blngsat_X = ucgen(minblng, 50, 
+			*kendi indikatörüm
+				xdes = data.desindic[i]
+				deskal_mu, deskal, deskal_X = ucgen(0,0,0,25, 100, xdes)
+				desal_mu, desal, desal_X = ucgen(0,0,25,50,100, xdes)
+				desbekle_mu, desbekle, desbekle_X = ucgen(0,25,50,75,100, xdes)
+				dessat_mu, dessat, dessat_X = ucgen(0,50,75,100,100, xdes)
+				desksat_mu, desksat, desksat_X = ucgen(0,75,100,100,100, xdes)
+		*giriş verilerini bu fonksiyonları kullanarak bulanıklaştır
+		*elde edilen verilerin tutulma şeklini seç ve tut
+	*bulanık sonuç çıkarma
+		*çıkış üyelik fonksiyonlarını oluştur
+		*kural tabanını oluştur
+		*bulanık girişleri uygulayarak bulanık sonuçları elde et
+	*durulaştırma
+		*elde edilen sonuçları durulaştır
+		*durulaştıran sonuçları sakla
+	*test
+		*bulanık mantık ile yapılan işlemlerden sonra hisse senedinin kazancını hesapla
+		*insan yentenekleri ile emirler oluştur
+		*bulanık kar yüzdesi ile insan yetenekleri ile verilen emirler sonucunda elde edilen karları karşılaştır
+		*bunu birkaç hisse için tekrarla
+
